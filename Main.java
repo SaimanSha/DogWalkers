@@ -17,28 +17,25 @@ public class Main {
         s.close();
         return false;
     }
-    
     public static void main(String[] args) throws FileNotFoundException {
+        int MONEY = 0;
         File file = new File("walkers.txt");
         Scanner scanner = new Scanner(file);
-        int chosen = 69;
-        if (lineExists(file, chosen)) {
-            System.out.println("Line exists.");
-            for (int i = 0; i < chosen - 1; i++) {
-                scanner.nextLine();}
+        while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             Walker walker = new Walker(line);
-                        System.out.println(walker.getAttributes());
             int co = walker.getCompany() + 1;
             Company company = new Company(co);
-                        System.out.print("Company " + walker.getCompany() + "'s schedule be4: " + company.getCompanyDogs(false));
-                        System.out.println();
-                        System.out.println("Dogs walked: " + company.getPaymentWithDeduction(walker));
-                        System.out.print("Company " + walker.getCompany() + "'s schedule now: " + company.getCompanyDogs(false));
+            MONEY += company.getPaymentWithDeduction(walker);
             
-        } else {
-            System.out.println("Line does not exist.");
+            // PUT THE THING THAT DETECTS WHETHER THE COMPANY HAS ALREADY BEEN EVALUATED
         }
+        System.out.print(MONEY);
         scanner.close();
     }
 }
+
+
+/**             String side = scanner.nextLine();
+            for (int i = 0; i < chosen - 1; i++) {
+                scanner.nextLine();} */
