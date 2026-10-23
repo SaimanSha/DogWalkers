@@ -6,6 +6,7 @@ public class Company {
     private int companyNum;
     private String companyInfo;
     private int[] companyDogs;
+    private static Company[] masterClass = new Company[120];
 
     public Company(int companyNum) throws FileNotFoundException {
         this.companyNum = companyNum;
@@ -50,10 +51,26 @@ public class Company {
                     }
                 }
             }
+            if (this.isAccountedFor() != true) {
+                masterClass[this.companyNum] = this;
+            }
             return ((dogsWalked * 5) + (bonuses * 3));
-        } else {
-            return 0;
-        }
+
+        } else {return 0;}
+    }
+
+    public static Company getExistingCompany(int number) {
+        if (masterClass[number] != null) {
+            return masterClass[number];
+        } else {return null;}
+    }
+
+    public boolean isAccountedFor() {
+        return (masterClass[this.companyNum] != null);
+    }
+
+    public static boolean isAccountedFor(int number) {
+        return (masterClass[number] != null);
     }
 
     public int getCompanyNum() {

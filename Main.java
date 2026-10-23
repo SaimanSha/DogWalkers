@@ -24,13 +24,17 @@ public class Main {
         while (scanner.hasNextLine()) {
             String line = scanner.nextLine();
             Walker walker = new Walker(line);
-            int co = walker.getCompany() + 1;
-            Company company = new Company(co);
+            Company company;
+            if (Company.isAccountedFor(walker.getCompany())) {
+                company = Company.getExistingCompany(walker.getCompany());
+            } else {
+                company = new Company(walker.getCompany());
+            }
             MONEY += company.getPaymentWithDeduction(walker);
             
             // PUT THE THING THAT DETECTS WHETHER THE COMPANY HAS ALREADY BEEN EVALUATED
         }
-        System.out.print(MONEY);
+        System.out.print("Total Money: " + MONEY);
         scanner.close();
     }
 }

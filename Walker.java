@@ -29,9 +29,12 @@ public class Walker {
     this.clockOut = info[3];
   }
 
-  public String getAttributes() {
-    return "Company: " + this.company + "; Can only walk " + this.capacity + " dogs; Works from " + this.clockIn + " to " + this.clockOut + ".";
-  }
+
+
+
+
+
+
 
   public int getCompany() {
     return this.company;
@@ -48,6 +51,12 @@ public class Walker {
   public int getClockOut() {
     return this.clockOut;
   } 
+
+
+
+  public String getAttributes() {
+    return "Company: " + this.company + "; Can only walk " + this.capacity + " dogs; Works from " + this.clockIn + " to " + this.clockOut + ".";
+  }
 }
 
 
