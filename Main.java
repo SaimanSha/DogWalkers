@@ -3,7 +3,8 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    public static boolean lineExists(File file, int chosen) throws FileNotFoundException {
+    /** Code below was used for debugging. */
+    /* public static boolean lineExists(File file, int chosen) throws FileNotFoundException {
         Scanner s = new Scanner(file);
         int counter = 0;
         while (s.hasNextLine() && counter < chosen) {
@@ -16,7 +17,8 @@ public class Main {
         }
         s.close();
         return false;
-    }
+    } */
+
     public static void main(String[] args) throws FileNotFoundException {
         int MONEY = 0;
         File file = new File("walkers.txt");
@@ -30,16 +32,12 @@ public class Main {
             } else {
                 company = new Company(walker.getCompany());
             }
-            MONEY += company.getPaymentWithDeduction(walker);
-            
-            // PUT THE THING THAT DETECTS WHETHER THE COMPANY HAS ALREADY BEEN EVALUATED
+            int earnings = company.getPaymentWithDeduction(walker);
+            MONEY += earnings;
+            System.out.print(earnings + ", ");
         }
-        System.out.print("Total Money: " + MONEY);
+        System.out.println();
+        System.out.print("Total Money: $" + MONEY);
         scanner.close();
     }
 }
-
-
-/**             String side = scanner.nextLine();
-            for (int i = 0; i < chosen - 1; i++) {
-                scanner.nextLine();} */

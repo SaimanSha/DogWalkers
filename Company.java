@@ -31,7 +31,7 @@ public class Company {
     }
 
     public int getPaymentWithDeduction(Walker walker) {
-        if (walker.getCompany() == this.companyNum -1) {
+        if (walker.getCompany() == this.companyNum) {
             int cap = walker.getCapacity();
             int clockIn = walker.getClockIn();
             int clockOut = walker.getClockOut();
