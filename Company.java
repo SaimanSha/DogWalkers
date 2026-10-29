@@ -14,7 +14,7 @@ public class Company {
         
         File file = new File("companies.txt");
         Scanner scanner = new Scanner(file);
-        for (int i = 0; i < companyNum - 1; i++) {
+        for (int i = 0; i <= companyNum; i++) {
             scanner.nextLine();
         }
         String line = scanner.nextLine();
@@ -38,7 +38,7 @@ public class Company {
             
             int dogsWalked = 0;
             int bonuses = 0;
-            for (int i = clockIn; i < clockOut; i++) {
+            for (int i = clockIn; i <= clockOut; i++) {
                 if (companyDogs[i] < cap) {
                     dogsWalked += companyDogs[i];
                     companyDogs[i] = 0;

@@ -23,7 +23,9 @@ public class Main {
         int MONEY = 0;
         File file = new File("walkers.txt");
         Scanner scanner = new Scanner(file);
+        int ie = 0;
         while (scanner.hasNextLine()) {
+            ie++;
             String line = scanner.nextLine();
             Walker walker = new Walker(line);
             Company company;
@@ -34,7 +36,7 @@ public class Main {
             }
             int earnings = company.getPaymentWithDeduction(walker);
             MONEY += earnings;
-            System.out.print(earnings + ", ");
+            System.out.print(ie + "|" + earnings + ", ");
         }
         System.out.println();
         System.out.print("Total Money: $" + MONEY);

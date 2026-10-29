@@ -29,13 +29,6 @@ public class Walker {
     this.clockOut = info[3];
   }
 
-
-
-
-
-
-
-
   public int getCompany() {
     return this.company;
   }
