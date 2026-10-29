@@ -5,14 +5,14 @@ public class Walker {
   private int clockOut;
 
   public Walker(int company, int capacity, int clockIn, int clockOut) {
-    this.company = company;
+    this.company = company + 1;
     this.capacity = capacity;
     this.clockIn = clockIn;
     this.clockOut = clockOut;
   }
 
   public Walker(String information) {
-    int[] info = new int[4];
+    int[] info = new int[5];
     int count = 0;
     String something = information;
     int space = something.indexOf(" ");

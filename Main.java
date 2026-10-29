@@ -3,22 +3,6 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class Main {
-    /** Code below was used for debugging. */
-    /* public static boolean lineExists(File file, int chosen) throws FileNotFoundException {
-        Scanner s = new Scanner(file);
-        int counter = 0;
-        while (s.hasNextLine() && counter < chosen) {
-            s.nextLine();
-            counter++;
-        }
-        if (counter >= chosen) {
-            s.close();
-            return true;
-        }
-        s.close();
-        return false;
-    } */
-
     public static void main(String[] args) throws FileNotFoundException {
         int MONEY = 0;
         File file = new File("walkers.txt");
@@ -42,4 +26,21 @@ public class Main {
         System.out.print("Total Money: $" + MONEY);
         scanner.close();
     }
+
+
+        /** Code below was used for debugging. */
+    /* public static boolean lineExists(File file, int chosen) throws FileNotFoundException {
+        Scanner s = new Scanner(file);
+        int counter = 0;
+        while (s.hasNextLine() && counter < chosen) {
+            s.nextLine();
+            counter++;
+        }
+        if (counter >= chosen) {
+            s.close();
+            return true;
+        }
+        s.close();
+        return false;
+    } */
 }

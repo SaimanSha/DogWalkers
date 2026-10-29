@@ -6,15 +6,15 @@ public class Company {
     private int companyNum;
     private String companyInfo;
     private int[] companyDogs;
-    private static Company[] masterClass = new Company[120];
+    private static Company[] masterClass = new Company[105];
 
     public Company(int companyNum) throws FileNotFoundException {
         this.companyNum = companyNum;
-        this.companyDogs = new int[24];
+        this.companyDogs = new int[25];
         
         File file = new File("companies.txt");
         Scanner scanner = new Scanner(file);
-        for (int i = 0; i <= companyNum; i++) {
+        for (int i = 0; i <= companyNum - 1; i++) {
             scanner.nextLine();
         }
         String line = scanner.nextLine();
@@ -39,14 +39,14 @@ public class Company {
             int dogsWalked = 0;
             int bonuses = 0;
             for (int i = clockIn; i <= clockOut; i++) {
-                if (companyDogs[i] < cap) {
+                if (companyDogs[i] <= cap) {
                     dogsWalked += companyDogs[i];
                     companyDogs[i] = 0;
                     bonuses++;
                 } else {
                     dogsWalked += cap;
                     companyDogs[i] -= cap;
-                    if (i >= 9 && i <= 17) {
+                    if (i >= 8 && i <= 16) {
                         bonuses++;
                     }
                 }
